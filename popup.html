@@ -1,0 +1,89 @@
+<!-- popup.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Job Application Assistant</title>
+  <!-- Include Tailwind CSS via CDN -->
+  <link href="tailwind.min.css" rel="stylesheet">
+</head>
+<body class="w-80 p-4 bg-gray-50">
+  <div class="space-y-4">
+    <!-- Header -->
+    <div class="text-center">
+      <h1 class="text-xl font-bold text-gray-800">Job Assistant</h1>
+      <p class="text-sm text-gray-600">Upload your CV to start</p>
+    </div>
+
+    <!-- Upload Section -->
+    <div class="bg-white p-4 rounded-lg shadow-sm">
+      <div 
+        id="uploadArea"
+        class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center cursor-pointer hover:border-blue-500 hover:bg-gray-50 transition-colors"
+      >
+        <!-- Upload Icon (using Heroicon style) -->
+        <svg 
+          class="mx-auto h-12 w-12 text-gray-400" 
+          stroke="currentColor" 
+          fill="none" 
+          viewBox="0 0 48 48"
+          aria-hidden="true"
+        >
+          <path 
+            d="M24 8v20m0-20l-8 8m8-8l8 8m-8 12h.01" 
+            stroke-width="2" 
+            stroke-linecap="round"
+          />
+        </svg>
+        <p class="mt-2 text-sm text-gray-600">
+          <span class="font-medium text-blue-600 hover:text-blue-500">
+            Upload your CV
+          </span>
+          or drag and drop
+        </p>
+        <p class="mt-1 text-xs text-gray-500">
+          PDF or Word up to 10MB
+        </p>
+        <input 
+          type="file" 
+          id="cvFile" 
+          accept=".pdf,.doc,.docx" 
+          class="hidden"
+        >
+      </div>
+      <div id="fileInfo" class="mt-2 text-sm text-gray-600 hidden">
+        <!-- File info will be shown here -->
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="space-y-2">
+      <button 
+        id="analyzeBtn"
+        disabled
+        class="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+      >
+        Analyze Page
+      </button>
+      
+      <button 
+        id="fillBtn"
+        disabled
+        class="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+      >
+        Auto Fill Form
+      </button>
+    </div>
+
+    <!-- Status Messages -->
+    <div 
+      id="status" 
+      class="hidden p-3 rounded-md text-sm"
+      role="alert"
+    >
+      <!-- Status messages will be shown here -->
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
